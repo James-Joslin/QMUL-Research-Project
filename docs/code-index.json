@@ -1,0 +1,2724 @@
+{
+  "commit": "0834660656deba61d3a13f544d5bb7a23d7d6834",
+  "modules": [
+    {
+      "path": "examples/optimise_functions.py",
+      "lines": 40,
+      "sha256": "b502bc013a97de12b834e2fce889be8d623caccfef7d23c41914457a92428d66",
+      "symbols": [
+        {
+          "name": "sphere",
+          "kind": "FunctionDef",
+          "line": 11
+        },
+        {
+          "name": "rastrigin",
+          "kind": "FunctionDef",
+          "line": 15
+        },
+        {
+          "name": "main",
+          "kind": "FunctionDef",
+          "line": 21
+        }
+      ],
+      "imports": [
+        "argparse",
+        "muzero_research.decision.nes",
+        "muzero_research.runtime.fitness",
+        "numpy"
+      ],
+      "entrypoint": true
+    },
+    {
+      "path": "scripts/index_code.py",
+      "lines": 115,
+      "sha256": "37d679b75842af9b2ce4aa85d8db331be40b0929251a63f6717d206078e0ba44",
+      "symbols": [
+        {
+          "name": "index",
+          "kind": "FunctionDef",
+          "line": 14
+        },
+        {
+          "name": "main",
+          "kind": "FunctionDef",
+          "line": 100
+        }
+      ],
+      "imports": [
+        "__future__",
+        "argparse",
+        "ast",
+        "collections",
+        "hashlib",
+        "json",
+        "pathlib",
+        "subprocess"
+      ],
+      "entrypoint": true
+    },
+    {
+      "path": "scripts/verify_artifacts.py",
+      "lines": 22,
+      "sha256": "833dfda523c14339fe50991eede7caa8885b0a07faf53123ac422cba618f93f9",
+      "symbols": [
+        {
+          "name": "main",
+          "kind": "FunctionDef",
+          "line": 8
+        }
+      ],
+      "imports": [
+        "hashlib",
+        "json",
+        "pathlib"
+      ],
+      "entrypoint": true
+    },
+    {
+      "path": "src/muzero_research/__init__.py",
+      "lines": 11,
+      "sha256": "a627e303e61382697579f08cd7d38380624adb511e99d1c9fd8a60bce272553c",
+      "symbols": [
+        {
+          "name": "__getattr__",
+          "kind": "FunctionDef",
+          "line": 6
+        }
+      ],
+      "imports": [
+        ".experiment"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/analysis/__init__.py",
+      "lines": 1,
+      "sha256": "0a7d4f4791271800996bbf49b112620ac1cf63e3d996eef6dd239b76cd8f7274",
+      "symbols": [],
+      "imports": [],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/analysis/database.py",
+      "lines": 23,
+      "sha256": "d12cb6b16f09de72604f8659b93b5aff233ff2309f543bf2523420b173db972b",
+      "symbols": [
+        {
+          "name": "import_table",
+          "kind": "FunctionDef",
+          "line": 7
+        }
+      ],
+      "imports": [
+        "os",
+        "pandas",
+        "pathlib",
+        "sqlalchemy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/analysis/results.py",
+      "lines": 129,
+      "sha256": "fb4808a5ca94e43789dffc03d9b3f529f54d8da8a50b8444f0e7e08f2f77dbda",
+      "symbols": [
+        {
+          "name": "read_results",
+          "kind": "FunctionDef",
+          "line": 8
+        },
+        {
+          "name": "summary",
+          "kind": "FunctionDef",
+          "line": 61
+        },
+        {
+          "name": "plot_results",
+          "kind": "FunctionDef",
+          "line": 90
+        }
+      ],
+      "imports": [
+        "json",
+        "matplotlib",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "pathlib",
+        "scipy.integrate"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/checkpoints.py",
+      "lines": 132,
+      "sha256": "5d3e4160d32ac7b2f25661e578a44b02483b46963cd47e708bfcf611d880499a",
+      "symbols": [
+        {
+          "name": "code_version",
+          "kind": "FunctionDef",
+          "line": 21
+        },
+        {
+          "name": "metadata",
+          "kind": "FunctionDef",
+          "line": 36
+        },
+        {
+          "name": "portable",
+          "kind": "FunctionDef",
+          "line": 58
+        },
+        {
+          "name": "save_checkpoint",
+          "kind": "FunctionDef",
+          "line": 76
+        },
+        {
+          "name": "is_bundled",
+          "kind": "FunctionDef",
+          "line": 84
+        },
+        {
+          "name": "load_checkpoint",
+          "kind": "FunctionDef",
+          "line": 92
+        },
+        {
+          "name": "convert_checkpoint",
+          "kind": "FunctionDef",
+          "line": 115
+        }
+      ],
+      "imports": [
+        ".",
+        ".config",
+        "__future__",
+        "hashlib",
+        "importlib.metadata",
+        "json",
+        "numpy",
+        "os",
+        "pathlib",
+        "subprocess",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/cli.py",
+      "lines": 150,
+      "sha256": "92e35df40c393471f31e0def05b83e86828f62b05bef3cbd2b4d2198e51f176e",
+      "symbols": [
+        {
+          "name": "parser",
+          "kind": "FunctionDef",
+          "line": 13
+        },
+        {
+          "name": "resolve_config",
+          "kind": "FunctionDef",
+          "line": 59
+        },
+        {
+          "name": "run",
+          "kind": "FunctionDef",
+          "line": 86
+        },
+        {
+          "name": "main",
+          "kind": "FunctionDef",
+          "line": 135
+        }
+      ],
+      "imports": [
+        ".analysis.database",
+        ".analysis.results",
+        ".checkpoints",
+        ".config",
+        ".diagnostics",
+        ".experiment",
+        ".tuning",
+        "__future__",
+        "argparse",
+        "copy",
+        "json",
+        "pathlib"
+      ],
+      "entrypoint": true
+    },
+    {
+      "path": "src/muzero_research/config.py",
+      "lines": 302,
+      "sha256": "c14c34cdb5fef3b1b2044f0b6ef9f7009246c6b0239ef75f8fe693944e1bad63",
+      "symbols": [
+        {
+          "name": "EnvironmentConfig",
+          "kind": "ClassDef",
+          "line": 13
+        },
+        {
+          "name": "NetworkConfig",
+          "kind": "ClassDef",
+          "line": 25
+        },
+        {
+          "name": "TrainingConfig",
+          "kind": "ClassDef",
+          "line": 46
+        },
+        {
+          "name": "RuntimeConfig",
+          "kind": "ClassDef",
+          "line": 68
+        },
+        {
+          "name": "DecisionConfig",
+          "kind": "ClassDef",
+          "line": 80
+        },
+        {
+          "name": "ExperimentConfig",
+          "kind": "ClassDef",
+          "line": 105
+        },
+        {
+          "name": "validate",
+          "kind": "FunctionDef",
+          "line": 114
+        },
+        {
+          "name": "to_dict",
+          "kind": "FunctionDef",
+          "line": 216
+        },
+        {
+          "name": "save",
+          "kind": "FunctionDef",
+          "line": 222
+        },
+        {
+          "name": "from_dict",
+          "kind": "FunctionDef",
+          "line": 227
+        },
+        {
+          "name": "load",
+          "kind": "FunctionDef",
+          "line": 251
+        },
+        {
+          "name": "preset",
+          "kind": "FunctionDef",
+          "line": 258
+        }
+      ],
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "json",
+        "math",
+        "pathlib",
+        "typing",
+        "yaml"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/contracts.py",
+      "lines": 106,
+      "sha256": "a2e60cb4a675d071cf8c76b3e40d281f7a2f969bb7f283575b93020f082b476c",
+      "symbols": [
+        {
+          "name": "Transition",
+          "kind": "ClassDef",
+          "line": 15
+        },
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 24
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 26
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 29
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 32
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 34
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 37
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 40
+        },
+        {
+          "name": "WorldModel",
+          "kind": "ClassDef",
+          "line": 44
+        },
+        {
+          "name": "initial_inference",
+          "kind": "FunctionDef",
+          "line": 46
+        },
+        {
+          "name": "recurrent_inference",
+          "kind": "FunctionDef",
+          "line": 51
+        },
+        {
+          "name": "get_weights",
+          "kind": "FunctionDef",
+          "line": 55
+        },
+        {
+          "name": "set_weights",
+          "kind": "FunctionDef",
+          "line": 58
+        },
+        {
+          "name": "DecisionResult",
+          "kind": "ClassDef",
+          "line": 63
+        },
+        {
+          "name": "validate",
+          "kind": "FunctionDef",
+          "line": 69
+        },
+        {
+          "name": "DecisionStrategy",
+          "kind": "ClassDef",
+          "line": 86
+        },
+        {
+          "name": "decide",
+          "kind": "FunctionDef",
+          "line": 88
+        },
+        {
+          "name": "FitnessEvaluator",
+          "kind": "ClassDef",
+          "line": 101
+        },
+        {
+          "name": "evaluate",
+          "kind": "FunctionDef",
+          "line": 103
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 105
+        }
+      ],
+      "imports": [
+        "__future__",
+        "abc",
+        "dataclasses",
+        "numpy",
+        "numpy.typing",
+        "torch",
+        "typing"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/__init__.py",
+      "lines": 19,
+      "sha256": "b6e597ef777d0c29af1a07ce47c7f95a3b9b0cc298f7b8380839bd7498cdc95c",
+      "symbols": [
+        {
+          "name": "make_strategy",
+          "kind": "FunctionDef",
+          "line": 9
+        }
+      ],
+      "imports": [
+        ".beam",
+        ".genetic",
+        ".mcts",
+        ".nes"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/beam.py",
+      "lines": 63,
+      "sha256": "2dc98a034adb1d8b9bab59827100218931ffd8110089eb049106dd04057460d2",
+      "symbols": [
+        {
+          "name": "BeamSearch",
+          "kind": "ClassDef",
+          "line": 10
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 11
+        },
+        {
+          "name": "decide",
+          "kind": "FunctionDef",
+          "line": 15
+        }
+      ],
+      "imports": [
+        "..contracts",
+        ".common",
+        ".trajectory",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/common.py",
+      "lines": 82,
+      "sha256": "cd924018e1da961a76a933f8827e1ea90aa431c57a833a16a10e9761cd6f6a07",
+      "symbols": [
+        {
+          "name": "model_device",
+          "kind": "FunctionDef",
+          "line": 12
+        },
+        {
+          "name": "initial",
+          "kind": "FunctionDef",
+          "line": 16
+        },
+        {
+          "name": "recurrent",
+          "kind": "FunctionDef",
+          "line": 29
+        },
+        {
+          "name": "priors",
+          "kind": "FunctionDef",
+          "line": 41
+        },
+        {
+          "name": "result",
+          "kind": "FunctionDef",
+          "line": 53
+        }
+      ],
+      "imports": [
+        "..contracts",
+        "..networks.models",
+        "__future__",
+        "numpy",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/genetic.py",
+      "lines": 94,
+      "sha256": "809e457743772923f61997a23c85920621a8a0db7fe3725d099d6a967cafa9be",
+      "symbols": [
+        {
+          "name": "TrajectoryObjective",
+          "kind": "ClassDef",
+          "line": 15
+        },
+        {
+          "name": "__call__",
+          "kind": "FunctionDef",
+          "line": 21
+        },
+        {
+          "name": "GeneticSearch",
+          "kind": "ClassDef",
+          "line": 30
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 31
+        },
+        {
+          "name": "decide",
+          "kind": "FunctionDef",
+          "line": 36
+        }
+      ],
+      "imports": [
+        "..contracts",
+        "..runtime.fitness",
+        ".common",
+        ".trajectory",
+        "dataclasses",
+        "numpy",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/mcts.py",
+      "lines": 112,
+      "sha256": "81dbda8be2f6480eab2c48c83f2c3d8639c84e21c9ebd96c338387f67c336ec5",
+      "symbols": [
+        {
+          "name": "Node",
+          "kind": "ClassDef",
+          "line": 13
+        },
+        {
+          "name": "value",
+          "kind": "FunctionDef",
+          "line": 23
+        },
+        {
+          "name": "backup",
+          "kind": "FunctionDef",
+          "line": 27
+        },
+        {
+          "name": "MCTS",
+          "kind": "ClassDef",
+          "line": 35
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 36
+        },
+        {
+          "name": "decide",
+          "kind": "FunctionDef",
+          "line": 40
+        }
+      ],
+      "imports": [
+        "..contracts",
+        ".common",
+        "dataclasses",
+        "math",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/nes.py",
+      "lines": 127,
+      "sha256": "c48294b50b78c9e5a5fa60d899c7da41670ec86c94760cdae961530e26ac30bf",
+      "symbols": [
+        {
+          "name": "es_update",
+          "kind": "FunctionDef",
+          "line": 15
+        },
+        {
+          "name": "ControllerObjective",
+          "kind": "ClassDef",
+          "line": 25
+        },
+        {
+          "name": "__call__",
+          "kind": "FunctionDef",
+          "line": 33
+        },
+        {
+          "name": "NESOptimizer",
+          "kind": "ClassDef",
+          "line": 45
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 46
+        },
+        {
+          "name": "optimise",
+          "kind": "FunctionDef",
+          "line": 55
+        },
+        {
+          "name": "state_dict",
+          "kind": "FunctionDef",
+          "line": 81
+        },
+        {
+          "name": "load_state_dict",
+          "kind": "FunctionDef",
+          "line": 84
+        },
+        {
+          "name": "NESPolicy",
+          "kind": "ClassDef",
+          "line": 90
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 91
+        },
+        {
+          "name": "decide",
+          "kind": "FunctionDef",
+          "line": 95
+        },
+        {
+          "name": "build_controller",
+          "kind": "FunctionDef",
+          "line": 120
+        }
+      ],
+      "imports": [
+        "..contracts",
+        "..networks.controller",
+        "..runtime.fitness",
+        ".common",
+        "copy",
+        "dataclasses",
+        "numpy",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/decision/trajectory.py",
+      "lines": 27,
+      "sha256": "ac0ed6da6b08c4cf5e0e2f32e19f57627b3cfca17e60f5c6d080429104e8f485",
+      "symbols": [
+        {
+          "name": "TrajectoryNode",
+          "kind": "ClassDef",
+          "line": 7
+        },
+        {
+          "name": "value",
+          "kind": "FunctionDef",
+          "line": 18
+        },
+        {
+          "name": "backup",
+          "kind": "FunctionDef",
+          "line": 21
+        }
+      ],
+      "imports": [
+        "dataclasses"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/diagnostics.py",
+      "lines": 75,
+      "sha256": "a4a7dc1c204388f9039ebccca6c07aef26b83ac98d266dc95b03c2a65c271247",
+      "symbols": [
+        {
+          "name": "diagnose",
+          "kind": "FunctionDef",
+          "line": 15
+        }
+      ],
+      "imports": [
+        ".decision",
+        ".decision.common",
+        ".environments",
+        ".training.history",
+        "graphviz",
+        "json",
+        "numpy",
+        "pathlib",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/__init__.py",
+      "lines": 167,
+      "sha256": "07aea45f9bcdf9f72419e3d4b2823e2cf3b261ac7ae8ff36ec5699ef21cac18a",
+      "symbols": [
+        {
+          "name": "GymGame",
+          "kind": "ClassDef",
+          "line": 29
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 30
+        },
+        {
+          "name": "_observation",
+          "kind": "FunctionDef",
+          "line": 34
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 48
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 52
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 63
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 66
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 69
+        },
+        {
+          "name": "OptionalGame",
+          "kind": "ClassDef",
+          "line": 73
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 76
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 81
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 88
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 99
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 102
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 105
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 108
+        },
+        {
+          "name": "make_game",
+          "kind": "FunctionDef",
+          "line": 112
+        }
+      ],
+      "imports": [
+        "..config",
+        "..contracts",
+        ".research_lander",
+        "__future__",
+        "ale_py",
+        "dataclasses",
+        "gymnasium",
+        "importlib",
+        "minigrid",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/__init__.py",
+      "lines": 1,
+      "sha256": "c6dc81d1fc3c10c99570c2a7ccfb848b01349d15c6f64f4a506d907a19144b82",
+      "symbols": [],
+      "imports": [],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/abstract_game.py",
+      "lines": 105,
+      "sha256": "3d1c804a60f7341e41bb46df5080fd7cf95cbb5a8cf66fd669172f16814122a3",
+      "symbols": [
+        {
+          "name": "AbstractGame",
+          "kind": "ClassDef",
+          "line": 4
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 10
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 14
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 26
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 36
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 50
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 59
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 66
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 72
+        },
+        {
+          "name": "expert_agent",
+          "kind": "FunctionDef",
+          "line": 85
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 95
+        }
+      ],
+      "imports": [
+        "abc"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/connect4.py",
+      "lines": 228,
+      "sha256": "947352f40f3269ab444e38e8b9835ca339e28e878cfd1a2344d0fe5487bd42a1",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 8
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 13
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 16
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 29
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 38
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 51
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 60
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 66
+        },
+        {
+          "name": "expert_agent",
+          "kind": "FunctionDef",
+          "line": 79
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 89
+        },
+        {
+          "name": "Connect4",
+          "kind": "ClassDef",
+          "line": 102
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 103
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 107
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 110
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 115
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 129
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 135
+        },
+        {
+          "name": "have_winner",
+          "kind": "FunctionDef",
+          "line": 142
+        },
+        {
+          "name": "expert_action",
+          "kind": "FunctionDef",
+          "line": 189
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 227
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/gomoku.py",
+      "lines": 203,
+      "sha256": "f90f49dcdde645d0cf1b4e86c0649e96ceba734592484c144775a2c85453ed7e",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 10
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 15
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 18
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 31
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 40
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 53
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 62
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 68
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 74
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 87
+        },
+        {
+          "name": "Gomoku",
+          "kind": "ClassDef",
+          "line": 98
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 99
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 105
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 108
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 113
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 126
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 132
+        },
+        {
+          "name": "is_finished",
+          "kind": "FunctionDef",
+          "line": 140
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 168
+        },
+        {
+          "name": "human_input_to_action",
+          "kind": "FunctionDef",
+          "line": 185
+        },
+        {
+          "name": "action_to_human_input",
+          "kind": "FunctionDef",
+          "line": 198
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "math",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/simple_grid.py",
+      "lines": 111,
+      "sha256": "20051d554e113f0079ee82ea29b706de08d9ef9a88bc51fb26c2eb1a748a6325",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 8
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 13
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 16
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 29
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 42
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 51
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 57
+        },
+        {
+          "name": "GridEnv",
+          "kind": "ClassDef",
+          "line": 74
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 75
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 79
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 87
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 98
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 102
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 108
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/spiel.py",
+      "lines": 171,
+      "sha256": "9e3294d60f71d1ed6711b430e0557aa005e58a488f2c1635d81b5e66019e446a",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 19
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 24
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 27
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 40
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 49
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 62
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 71
+        },
+        {
+          "name": "legal_actions_human",
+          "kind": "FunctionDef",
+          "line": 77
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 80
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 100
+        },
+        {
+          "name": "Spiel",
+          "kind": "ClassDef",
+          "line": 115
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 116
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 121
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 124
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 129
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 142
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 151
+        },
+        {
+          "name": "have_winner",
+          "kind": "FunctionDef",
+          "line": 154
+        },
+        {
+          "name": "human_legal_actions",
+          "kind": "FunctionDef",
+          "line": 167
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 170
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "numpy",
+        "pyspiel"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/tictactoe.py",
+      "lines": 223,
+      "sha256": "4206b118e1ae8a8430c9697fe8d237ffd205c8d4946f1249ae5b520aff16c50c",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 8
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 13
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 16
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 29
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 38
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 51
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 60
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 66
+        },
+        {
+          "name": "expert_agent",
+          "kind": "FunctionDef",
+          "line": 96
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 106
+        },
+        {
+          "name": "TicTacToe",
+          "kind": "ClassDef",
+          "line": 121
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 122
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 126
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 129
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 134
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 147
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 153
+        },
+        {
+          "name": "have_winner",
+          "kind": "FunctionDef",
+          "line": 162
+        },
+        {
+          "name": "expert_action",
+          "kind": "FunctionDef",
+          "line": 186
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 222
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/optional/twentyone.py",
+      "lines": 181,
+      "sha256": "965a1cf57efb8282e495a12342e5a5eae5459c9170388242f72109a85fe27e5a",
+      "symbols": [
+        {
+          "name": "Game",
+          "kind": "ClassDef",
+          "line": 13
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 18
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 21
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 34
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 43
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 56
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 65
+        },
+        {
+          "name": "human_to_action",
+          "kind": "FunctionDef",
+          "line": 71
+        },
+        {
+          "name": "action_to_string",
+          "kind": "FunctionDef",
+          "line": 84
+        },
+        {
+          "name": "TwentyOne",
+          "kind": "ClassDef",
+          "line": 101
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 102
+        },
+        {
+          "name": "to_play",
+          "kind": "FunctionDef",
+          "line": 110
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 113
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 124
+        },
+        {
+          "name": "get_observation",
+          "kind": "FunctionDef",
+          "line": 136
+        },
+        {
+          "name": "legal_actions",
+          "kind": "FunctionDef",
+          "line": 143
+        },
+        {
+          "name": "get_reward",
+          "kind": "FunctionDef",
+          "line": 148
+        },
+        {
+          "name": "deal_card_value",
+          "kind": "FunctionDef",
+          "line": 161
+        },
+        {
+          "name": "dealer_plays",
+          "kind": "FunctionDef",
+          "line": 169
+        },
+        {
+          "name": "is_busted",
+          "kind": "FunctionDef",
+          "line": 175
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 179
+        }
+      ],
+      "imports": [
+        ".abstract_game",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/environments/research_lander.py",
+      "lines": 410,
+      "sha256": "296f9da66dd4beeb8c68f9e4458207629c1e05025db2d43e650b2d4fe121b7d7",
+      "symbols": [
+        {
+          "name": "ContactDetector",
+          "kind": "ClassDef",
+          "line": 51
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 52
+        },
+        {
+          "name": "BeginContact",
+          "kind": "FunctionDef",
+          "line": 56
+        },
+        {
+          "name": "EndContact",
+          "kind": "FunctionDef",
+          "line": 63
+        },
+        {
+          "name": "DeterministicLunarLander",
+          "kind": "ClassDef",
+          "line": 69
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 74
+        },
+        {
+          "name": "seed",
+          "kind": "FunctionDef",
+          "line": 99
+        },
+        {
+          "name": "_destroy",
+          "kind": "FunctionDef",
+          "line": 103
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 115
+        },
+        {
+          "name": "_create_particle",
+          "kind": "FunctionDef",
+          "line": 215
+        },
+        {
+          "name": "_clean_particles",
+          "kind": "FunctionDef",
+          "line": 233
+        },
+        {
+          "name": "_step",
+          "kind": "FunctionDef",
+          "line": 237
+        },
+        {
+          "name": "step",
+          "kind": "FunctionDef",
+          "line": 353
+        },
+        {
+          "name": "render",
+          "kind": "FunctionDef",
+          "line": 359
+        },
+        {
+          "name": "pixel",
+          "kind": "FunctionDef",
+          "line": 370
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 404
+        }
+      ],
+      "imports": [
+        "Box2D",
+        "Box2D.b2",
+        "gymnasium",
+        "gymnasium.utils",
+        "math",
+        "numpy",
+        "pygame"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/experiment.py",
+      "lines": 343,
+      "sha256": "b2266681856a1e87a34bcc2beda16c3cb2063d278abcb14d4df6ac3cd99de803",
+      "symbols": [
+        {
+          "name": "Experiment",
+          "kind": "ClassDef",
+          "line": 29
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 30
+        },
+        {
+          "name": "from_checkpoint",
+          "kind": "FunctionDef",
+          "line": 51
+        },
+        {
+          "name": "_restore",
+          "kind": "FunctionDef",
+          "line": 59
+        },
+        {
+          "name": "checkpoint",
+          "kind": "FunctionDef",
+          "line": 77
+        },
+        {
+          "name": "save",
+          "kind": "FunctionDef",
+          "line": 90
+        },
+        {
+          "name": "cancel",
+          "kind": "FunctionDef",
+          "line": 95
+        },
+        {
+          "name": "_seed",
+          "kind": "FunctionDef",
+          "line": 98
+        },
+        {
+          "name": "_reanalyse",
+          "kind": "FunctionDef",
+          "line": 101
+        },
+        {
+          "name": "train",
+          "kind": "FunctionDef",
+          "line": 128
+        },
+        {
+          "name": "evaluate",
+          "kind": "FunctionDef",
+          "line": 278
+        },
+        {
+          "name": "write_evaluation",
+          "kind": "FunctionDef",
+          "line": 326
+        }
+      ],
+      "imports": [
+        ".checkpoints",
+        ".config",
+        ".decision",
+        ".decision.common",
+        ".decision.nes",
+        ".networks",
+        ".runtime",
+        ".runtime.fitness",
+        ".runtime.workers",
+        ".training.replay",
+        ".training.self_play",
+        ".training.trainer",
+        "PIL",
+        "__future__",
+        "contextlib",
+        "copy",
+        "csv",
+        "json",
+        "numpy",
+        "pathlib",
+        "ray",
+        "threading",
+        "torch",
+        "torch.utils.tensorboard"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/networks/__init__.py",
+      "lines": 35,
+      "sha256": "f90248d68fed0953a7dee10be3896fb139f07b7947d4afa981024d5c172d7f2c",
+      "symbols": [
+        {
+          "name": "build_network",
+          "kind": "FunctionDef",
+          "line": 8
+        }
+      ],
+      "imports": [
+        "..config",
+        "..contracts",
+        ".models"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/networks/controller.py",
+      "lines": 33,
+      "sha256": "ed0812d5770cffea9a207ef37aaca1432e23f0a042a1f3cdd316885fc7a8fee2",
+      "symbols": [
+        {
+          "name": "Controller",
+          "kind": "ClassDef",
+          "line": 8
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 9
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 19
+        },
+        {
+          "name": "vector",
+          "kind": "FunctionDef",
+          "line": 26
+        },
+        {
+          "name": "set_vector",
+          "kind": "FunctionDef",
+          "line": 29
+        }
+      ],
+      "imports": [
+        "torch",
+        "torch.nn.utils"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/networks/models.py",
+      "lines": 603,
+      "sha256": "f647ced41c415f01a38245ee27b6a11c897f25cda6dae3265b41207ff48208e1",
+      "symbols": [
+        {
+          "name": "dict_to_cpu",
+          "kind": "FunctionDef",
+          "line": 10
+        },
+        {
+          "name": "MuZeroFullyConnectedNetwork",
+          "kind": "ClassDef",
+          "line": 26
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 27
+        },
+        {
+          "name": "prediction",
+          "kind": "FunctionDef",
+          "line": 74
+        },
+        {
+          "name": "representation",
+          "kind": "FunctionDef",
+          "line": 79
+        },
+        {
+          "name": "dynamics",
+          "kind": "FunctionDef",
+          "line": 89
+        },
+        {
+          "name": "initial_inference",
+          "kind": "FunctionDef",
+          "line": 112
+        },
+        {
+          "name": "recurrent_inference",
+          "kind": "FunctionDef",
+          "line": 130
+        },
+        {
+          "name": "conv3x3",
+          "kind": "FunctionDef",
+          "line": 144
+        },
+        {
+          "name": "ResidualBlock",
+          "kind": "ClassDef",
+          "line": 151
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 152
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 159
+        },
+        {
+          "name": "DownSample",
+          "kind": "ClassDef",
+          "line": 171
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 172
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 196
+        },
+        {
+          "name": "DownsampleCNN",
+          "kind": "ClassDef",
+          "line": 210
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 211
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 224
+        },
+        {
+          "name": "RepresentationNetwork",
+          "kind": "ClassDef",
+          "line": 230
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 231
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 267
+        },
+        {
+          "name": "DynamicsNetwork",
+          "kind": "ClassDef",
+          "line": 280
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 281
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 305
+        },
+        {
+          "name": "PredictionNetwork",
+          "kind": "ClassDef",
+          "line": 318
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 319
+        },
+        {
+          "name": "forward",
+          "kind": "FunctionDef",
+          "line": 348
+        },
+        {
+          "name": "MuZeroResidualNetwork",
+          "kind": "ClassDef",
+          "line": 360
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 361
+        },
+        {
+          "name": "prediction",
+          "kind": "FunctionDef",
+          "line": 446
+        },
+        {
+          "name": "representation",
+          "kind": "FunctionDef",
+          "line": 450
+        },
+        {
+          "name": "dynamics",
+          "kind": "FunctionDef",
+          "line": 477
+        },
+        {
+          "name": "initial_inference",
+          "kind": "FunctionDef",
+          "line": 521
+        },
+        {
+          "name": "recurrent_inference",
+          "kind": "FunctionDef",
+          "line": 538
+        },
+        {
+          "name": "mlp",
+          "kind": "FunctionDef",
+          "line": 548
+        },
+        {
+          "name": "support_to_scalar",
+          "kind": "FunctionDef",
+          "line": 563
+        },
+        {
+          "name": "scalar_to_support",
+          "kind": "FunctionDef",
+          "line": 585
+        }
+      ],
+      "imports": [
+        "..contracts",
+        "math",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/runtime/__init__.py",
+      "lines": 5,
+      "sha256": "2fc08d3818be5200c273e9ed7a7ad2d0fe070a5c9eaeb6aa48224bcb564b3799",
+      "symbols": [],
+      "imports": [
+        ".ray_runtime"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/runtime/fitness.py",
+      "lines": 65,
+      "sha256": "5f9387def05ceb82877844ff4671e14b75a34a10e88b69ba0d2e8eaf88082d64",
+      "symbols": [
+        {
+          "name": "evaluate_batch",
+          "kind": "FunctionDef",
+          "line": 10
+        },
+        {
+          "name": "LocalFitnessEvaluator",
+          "kind": "ClassDef",
+          "line": 17
+        },
+        {
+          "name": "evaluate",
+          "kind": "FunctionDef",
+          "line": 18
+        },
+        {
+          "name": "RayFitnessEvaluator",
+          "kind": "ClassDef",
+          "line": 22
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 23
+        },
+        {
+          "name": "evaluate",
+          "kind": "FunctionDef",
+          "line": 33
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 50
+        },
+        {
+          "name": "make_evaluator",
+          "kind": "FunctionDef",
+          "line": 58
+        }
+      ],
+      "imports": [
+        "..contracts",
+        "__future__",
+        "numpy",
+        "ray"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/runtime/ray_runtime.py",
+      "lines": 57,
+      "sha256": "7f3b5f295ef3ac93b8553acfe47c471d6311ca67756e2334e56d6d2c73d464c1",
+      "symbols": [
+        {
+          "name": "RayRuntime",
+          "kind": "ClassDef",
+          "line": 6
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 7
+        },
+        {
+          "name": "__enter__",
+          "kind": "FunctionDef",
+          "line": 12
+        },
+        {
+          "name": "collect",
+          "kind": "FunctionDef",
+          "line": 32
+        },
+        {
+          "name": "__exit__",
+          "kind": "FunctionDef",
+          "line": 49
+        }
+      ],
+      "imports": [
+        "ray",
+        "time"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/runtime/workers.py",
+      "lines": 32,
+      "sha256": "e8f5131ba0778a431ae02274a198604dbced70121f457529aed500edf8d6b4e1",
+      "symbols": [
+        {
+          "name": "SelfPlayWorker",
+          "kind": "ClassDef",
+          "line": 11
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 12
+        },
+        {
+          "name": "collect",
+          "kind": "FunctionDef",
+          "line": 22
+        },
+        {
+          "name": "make_self_play_actor",
+          "kind": "FunctionDef",
+          "line": 29
+        }
+      ],
+      "imports": [
+        "..decision",
+        "..decision.nes",
+        "..networks",
+        "..training.self_play",
+        "copy",
+        "ray"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/training/__init__.py",
+      "lines": 1,
+      "sha256": "d6f3c166f724e6cd8fb640fbefc59a7b5fef677add3f24357524678278e4d7eb",
+      "symbols": [],
+      "imports": [],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/training/history.py",
+      "lines": 66,
+      "sha256": "110d510afbc4e1cddeef791cb8ba8f6e9ceccadb4a8463a84e9416163114fb29",
+      "symbols": [
+        {
+          "name": "Episode",
+          "kind": "ClassDef",
+          "line": 9
+        },
+        {
+          "name": "stacked",
+          "kind": "FunctionDef",
+          "line": 24
+        },
+        {
+          "name": "to_dict",
+          "kind": "FunctionDef",
+          "line": 42
+        },
+        {
+          "name": "from_dict",
+          "kind": "FunctionDef",
+          "line": 60
+        }
+      ],
+      "imports": [
+        "dataclasses",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/training/replay.py",
+      "lines": 137,
+      "sha256": "83bd4d0008cc0bf450e8023f77bcf1cfa62e304bdc0173fd67357bf7ff2575a1",
+      "symbols": [
+        {
+          "name": "target_value",
+          "kind": "FunctionDef",
+          "line": 8
+        },
+        {
+          "name": "ReplayBuffer",
+          "kind": "ClassDef",
+          "line": 34
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 35
+        },
+        {
+          "name": "add",
+          "kind": "FunctionDef",
+          "line": 41
+        },
+        {
+          "name": "sample",
+          "kind": "FunctionDef",
+          "line": 59
+        },
+        {
+          "name": "update_priorities",
+          "kind": "FunctionDef",
+          "line": 121
+        },
+        {
+          "name": "state_dict",
+          "kind": "FunctionDef",
+          "line": 127
+        },
+        {
+          "name": "load_state_dict",
+          "kind": "FunctionDef",
+          "line": 134
+        }
+      ],
+      "imports": [
+        ".history",
+        "numpy"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/training/self_play.py",
+      "lines": 102,
+      "sha256": "58ea7f73d8da81d87067825547c48552b73704ec84a3a756286278afc644d5a1",
+      "symbols": [
+        {
+          "name": "seed_everything",
+          "kind": "FunctionDef",
+          "line": 14
+        },
+        {
+          "name": "play_episode",
+          "kind": "FunctionDef",
+          "line": 23
+        }
+      ],
+      "imports": [
+        "..decision.common",
+        "..environments",
+        ".history",
+        "numpy",
+        "random",
+        "time",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/training/trainer.py",
+      "lines": 108,
+      "sha256": "a96d96ce227b7ecd647338d78b13c525d61a8a49d578e77c7cae10e5b8a15942",
+      "symbols": [
+        {
+          "name": "scale_gradient",
+          "kind": "FunctionDef",
+          "line": 10
+        },
+        {
+          "name": "Trainer",
+          "kind": "ClassDef",
+          "line": 14
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 15
+        },
+        {
+          "name": "update",
+          "kind": "FunctionDef",
+          "line": 24
+        },
+        {
+          "name": "state_dict",
+          "kind": "FunctionDef",
+          "line": 102
+        },
+        {
+          "name": "load_state_dict",
+          "kind": "FunctionDef",
+          "line": 105
+        }
+      ],
+      "imports": [
+        "..decision.common",
+        "..networks.models",
+        "numpy",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "src/muzero_research/tuning.py",
+      "lines": 57,
+      "sha256": "3b6198949d8d293953d6a71cdc9360db529b475b2733f8dd1a0d41a754b4fafa",
+      "symbols": [
+        {
+          "name": "tune_experiment",
+          "kind": "FunctionDef",
+          "line": 7
+        },
+        {
+          "name": "trainable",
+          "kind": "FunctionDef",
+          "line": 18
+        }
+      ],
+      "imports": [
+        ".config",
+        ".experiment",
+        ".runtime",
+        "copy",
+        "pathlib",
+        "ray"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/conftest.py",
+      "lines": 49,
+      "sha256": "d573c6c9d9635e2c5f242377f81e183e15aa2ff25ee0874de8a4e89320268bb0",
+      "symbols": [
+        {
+          "name": "ToyModel",
+          "kind": "ClassDef",
+          "line": 9
+        },
+        {
+          "name": "__init__",
+          "kind": "FunctionDef",
+          "line": 12
+        },
+        {
+          "name": "categorical",
+          "kind": "FunctionDef",
+          "line": 18
+        },
+        {
+          "name": "initial_inference",
+          "kind": "FunctionDef",
+          "line": 24
+        },
+        {
+          "name": "recurrent_inference",
+          "kind": "FunctionDef",
+          "line": 32
+        },
+        {
+          "name": "toy_model",
+          "kind": "FunctionDef",
+          "line": 43
+        },
+        {
+          "name": "rng",
+          "kind": "FunctionDef",
+          "line": 48
+        }
+      ],
+      "imports": [
+        "muzero_research.contracts",
+        "muzero_research.networks.models",
+        "numpy",
+        "pytest",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_decisions.py",
+      "lines": 97,
+      "sha256": "76f27ee7fc0ff66229840821ca5ad819a43b950f41000d013d96a8a1709d9d04",
+      "symbols": [
+        {
+          "name": "test_decision_contract_and_legal_mask",
+          "kind": "FunctionDef",
+          "line": 14
+        },
+        {
+          "name": "test_evaluation_has_no_exploration_noise",
+          "kind": "FunctionDef",
+          "line": 35
+        },
+        {
+          "name": "test_discounted_backup",
+          "kind": "FunctionDef",
+          "line": 62
+        },
+        {
+          "name": "test_zero_visit_fallback_and_temperature",
+          "kind": "FunctionDef",
+          "line": 72
+        },
+        {
+          "name": "test_nes_estimator_uses_unit_noise_and_sigma",
+          "kind": "FunctionDef",
+          "line": 79
+        },
+        {
+          "name": "test_controller_vector_roundtrip",
+          "kind": "FunctionDef",
+          "line": 88
+        }
+      ],
+      "imports": [
+        "muzero_research.config",
+        "muzero_research.decision",
+        "muzero_research.decision.common",
+        "muzero_research.decision.mcts",
+        "muzero_research.decision.nes",
+        "muzero_research.networks.controller",
+        "numpy",
+        "pytest",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_environments_analysis_cli.py",
+      "lines": 134,
+      "sha256": "8613248cdb5c91ab3251f8bf03db721614fff687c5194a109e40860ad3e01571",
+      "symbols": [
+        {
+          "name": "test_seeded_environment_actions_and_rgb",
+          "kind": "FunctionDef",
+          "line": 14
+        },
+        {
+          "name": "test_research_lander_preserves_baseline_physics",
+          "kind": "FunctionDef",
+          "line": 32
+        },
+        {
+          "name": "test_optional_games_are_lazy_and_playable",
+          "kind": "FunctionDef",
+          "line": 55
+        },
+        {
+          "name": "test_cli_training_evaluation_diagnostics_and_plots",
+          "kind": "FunctionDef",
+          "line": 67
+        },
+        {
+          "name": "test_ragged_historical_npz_plotting",
+          "kind": "FunctionDef",
+          "line": 119
+        },
+        {
+          "name": "test_database_adapter_requires_configuration",
+          "kind": "FunctionDef",
+          "line": 129
+        }
+      ],
+      "imports": [
+        "muzero_research.analysis.database",
+        "muzero_research.analysis.results",
+        "muzero_research.cli",
+        "muzero_research.config",
+        "muzero_research.environments",
+        "muzero_research.environments.research_lander",
+        "numpy",
+        "pathlib",
+        "pytest"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_experiments.py",
+      "lines": 154,
+      "sha256": "16a8c1604e1c12c350a7d0e4f583efc73b9a4817e86c2c40eda6b7f3fcae3bec",
+      "symbols": [
+        {
+          "name": "test_primary_training_matrix",
+          "kind": "FunctionDef",
+          "line": 19
+        },
+        {
+          "name": "test_historical_checkpoint_predictions_and_conversion",
+          "kind": "FunctionDef",
+          "line": 43
+        },
+        {
+          "name": "test_save_resume_matches_uninterrupted_training",
+          "kind": "FunctionDef",
+          "line": 79
+        },
+        {
+          "name": "test_cancel_before_collection_saves_checkpoint",
+          "kind": "FunctionDef",
+          "line": 104
+        },
+        {
+          "name": "test_failed_collection_saves_and_closes",
+          "kind": "FunctionDef",
+          "line": 114
+        },
+        {
+          "name": "BrokenGame",
+          "kind": "ClassDef",
+          "line": 119
+        },
+        {
+          "name": "reset",
+          "kind": "FunctionDef",
+          "line": 120
+        },
+        {
+          "name": "close",
+          "kind": "FunctionDef",
+          "line": 123
+        },
+        {
+          "name": "test_residual_network_training",
+          "kind": "FunctionDef",
+          "line": 136
+        },
+        {
+          "name": "test_config_roundtrip_and_unknown_keys",
+          "kind": "FunctionDef",
+          "line": 145
+        }
+      ],
+      "imports": [
+        "json",
+        "muzero_research.checkpoints",
+        "muzero_research.config",
+        "muzero_research.experiment",
+        "muzero_research.networks",
+        "muzero_research.training",
+        "numpy",
+        "pathlib",
+        "pytest",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_gpu.py",
+      "lines": 21,
+      "sha256": "477378dab37bc318a8e1c34cd58ede47108ca980aafa0a21d0e86a7298da8189",
+      "symbols": [
+        {
+          "name": "test_gpu_training_and_cpu_checkpoint_loading",
+          "kind": "FunctionDef",
+          "line": 12
+        }
+      ],
+      "imports": [
+        "muzero_research.config",
+        "muzero_research.experiment",
+        "numpy",
+        "pytest",
+        "torch"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_ray_runtime.py",
+      "lines": 89,
+      "sha256": "815d34c59409dbf922ba542e2dbca89c9eadec9f211e2437f7a3114e1db033cf",
+      "symbols": [
+        {
+          "name": "sphere",
+          "kind": "FunctionDef",
+          "line": 11
+        },
+        {
+          "name": "test_ray_population_equivalence_failure_cancellation_and_cleanup",
+          "kind": "FunctionDef",
+          "line": 16
+        },
+        {
+          "name": "failure",
+          "kind": "FunctionDef",
+          "line": 30
+        },
+        {
+          "name": "test_parallel_selfplay_training",
+          "kind": "FunctionDef",
+          "line": 45
+        },
+        {
+          "name": "test_population_workers_with_real_world_model",
+          "kind": "FunctionDef",
+          "line": 62
+        },
+        {
+          "name": "test_tuning_runs_a_complete_trial",
+          "kind": "FunctionDef",
+          "line": 78
+        }
+      ],
+      "imports": [
+        "muzero_research.config",
+        "muzero_research.experiment",
+        "muzero_research.runtime",
+        "muzero_research.runtime.fitness",
+        "muzero_research.tuning",
+        "numpy",
+        "pytest",
+        "ray",
+        "threading"
+      ],
+      "entrypoint": false
+    },
+    {
+      "path": "tests/test_replay.py",
+      "lines": 70,
+      "sha256": "ebe929db65cf6fd8058048e49a21cff71a3e06dd222a5b8cc1075a7d846b268b",
+      "symbols": [
+        {
+          "name": "episode",
+          "kind": "FunctionDef",
+          "line": 9
+        },
+        {
+          "name": "test_terminal_vs_truncation_bootstrap",
+          "kind": "FunctionDef",
+          "line": 24
+        },
+        {
+          "name": "test_stacking_history_actions_and_padding",
+          "kind": "FunctionDef",
+          "line": 33
+        },
+        {
+          "name": "test_replay_masks_capacity_and_serialisation",
+          "kind": "FunctionDef",
+          "line": 44
+        },
+        {
+          "name": "test_multiplayer_target_orientation",
+          "kind": "FunctionDef",
+          "line": 67
+        }
+      ],
+      "imports": [
+        "muzero_research.config",
+        "muzero_research.training.history",
+        "muzero_research.training.replay",
+        "numpy",
+        "pytest"
+      ],
+      "entrypoint": false
+    }
+  ],
+  "duplicates": [],
+  "original_configs": {},
+  "checkpoints": [
+    {
+      "path": "artifacts/checkpoints/beam/gridworld/model.checkpoint",
+      "sha256": "2a13b7b393ef2318382f3d474bb84868bfd70c454b9a4f2ade9245dad28d2a60",
+      "bytes": 47875
+    },
+    {
+      "path": "artifacts/checkpoints/beam/lunarlander/model.checkpoint",
+      "sha256": "604b4f114fc48497acd0120e84c7a3ea486fdd2b29f08efbe54b56f40b670934",
+      "bytes": 96963
+    },
+    {
+      "path": "artifacts/checkpoints/genetic/gridworld/model.checkpoint",
+      "sha256": "3f22606a28c32bcc74b7207cde82b02bc2bf358963599a5425df776fccb11451",
+      "bytes": 47811
+    },
+    {
+      "path": "artifacts/checkpoints/genetic/lunarlander/model.checkpoint",
+      "sha256": "c3c519cb0db945232c299584d810e8b3af74c1f7b4463121dc6d89a6d2d6bb1c",
+      "bytes": 96963
+    },
+    {
+      "path": "artifacts/checkpoints/mcts/gridworld/model.checkpoint",
+      "sha256": "6aab9d9517d08ca72fc33dd889d97c53a2f44e1d2733b924f184f9ad613eccb1",
+      "bytes": 47875
+    },
+    {
+      "path": "artifacts/checkpoints/mcts/lunarlander/model.checkpoint",
+      "sha256": "f6763292d7e3b33a1f925b747641be2cacb5bc4804d383bc9395c8949dab559c",
+      "bytes": 96963
+    },
+    {
+      "path": "artifacts/checkpoints/nes/gridworld/model.checkpoint",
+      "sha256": "37b643de90636a16cb349524063b8b51b76b92a7ea6d1a1dcdb5c0d7fb089299",
+      "bytes": 50743
+    },
+    {
+      "path": "artifacts/checkpoints/nes/lunarlander/model.checkpoint",
+      "sha256": "eac8eeaddfef5a36ebfe5f0cf0ee2d2a8e3a2a3c7f511d7e5b246b593f2671ae",
+      "bytes": 100279
+    }
+  ]
+}

@@ -20,20 +20,32 @@ SCHEMA_VERSION = 1
 
 def code_version():
     try:
-        return subprocess.check_output(
+        revision = subprocess.check_output(
             ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL, text=True
         ).strip()
+        dirty = subprocess.check_output(
+            ["git", "status", "--porcelain", "--", "src", "pyproject.toml", "uv.lock"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+        ).strip()
+        return revision + ("-dirty" if dirty else "")
     except (FileNotFoundError, subprocess.CalledProcessError):
         return __version__
 
 
 def metadata(config):
+    package = Path(__file__).resolve().parent
+    source_hash = hashlib.sha256()
+    for path in sorted(package.rglob("*.py")):
+        source_hash.update(path.relative_to(package).as_posix().encode())
+        source_hash.update(path.read_bytes())
     return {
         "schema_version": SCHEMA_VERSION,
         "config": config.to_dict(),
         "environment_variant": config.environment.name,
         "observation_layout": config.environment.observation_layout,
         "code_version": code_version(),
+        "package_source_sha256": source_hash.hexdigest(),
         "package_version": __version__,
         "historical": False,
         "dependencies": {

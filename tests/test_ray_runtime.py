@@ -19,6 +19,9 @@ def test_ray_population_equivalence_failure_cancellation_and_cleanup():
     config = preset(smoke=True)
     candidates = np.arange(20).reshape(5, 4)
     with RayRuntime(config.runtime) as runtime:
+        with RayRuntime(config.runtime) as borrowed:
+            assert not borrowed.owned
+        assert ray.is_initialized()
         objective = lambda candidate: -float(np.square(candidate).sum())  # noqa: E731
         local = LocalFitnessEvaluator().evaluate(objective, candidates)
         remote = RayFitnessEvaluator(2).evaluate(objective, candidates)

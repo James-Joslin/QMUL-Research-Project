@@ -1,101 +1,111 @@
-# Testing Alternative Decision Methods to Replace MuZero's Monte Carlo Tree Search
+# MuZero decision-method research
 
-This project explores various decision-making algorithms as potential replacements for the Monte Carlo Tree Search (MCTS) utilized in MuZero (Schrittwieser et al., 2020).
+This master's research project compares alternatives to MuZero's Monte Carlo Tree Search:
+**MCTS**, **heuristic beam search**, **genetic trajectory search**, and an **NES-trained
+controller**. It builds on [MuZero-General](https://github.com/werner-duvaud/muzero-general)
+by Werner Duvaud.
 
-## Installation
+The code uses one Python package, shared training and replay logic, explicit decision
+interfaces, typed YAML configuration, and a reproducible development environment. Historical
+models and figures are retained. Corrected experiments are distinct from the original results;
+see [behaviour changes](docs/behaviour-changes.md).
 
-1. Ensure you have **Python 3.10.7** installed.
-2. It's recommended to use a virtual environment. You can set it up using:
-    ```bash
-    python3 -m venv venv_name
-    source venv_name/bin/activate
-    ```
-3. Once you're in your virtual environment, clone the repository and navigate to its directory.
-4. Install the required packages using:
-    ```bash
-    pip install -r requirements.txt
-    ```
+## Start with Docker
 
-> **Note**: This project was tested within an **Ubuntu 23.04 (Lunar Lobster)** OS environment.
+Install Docker with Compose v2. On Linux, set `LOCAL_UID` and `LOCAL_GID` in `.env` to the
+values from `id -u` and `id -g` so generated files belong to you.
 
-## Base Repository
+```sh
+docker compose build dev
+docker compose run --rm dev
+```
 
-This project is an extension of the [MuZero-General](https://github.com/werner-duvaud/muzero-general) repository by Werner Duvard.
+Inside the shell:
 
-## About the Modifications
+```sh
+pytest -m 'not gpu' -q
+muzero-research train --config configs/smoke/mcts-gridworld.yaml --output runs/quickstart
+muzero-research evaluate --checkpoint runs/quickstart/model.checkpoint --episodes 3 --output runs/quickstart/evaluation.csv
+muzero-research plot runs/quickstart/evaluation.csv --output runs/quickstart/returns.png
+```
 
-In this research, alternative search methods were explored to see if they could replace the original MCTS in MuZero. The initial experiments were done in separate branches, and after thorough testing, the methods were added to the main repository. You can find these methods in their respective directories, each building upon the `MuZero-MCTS-Search` framework.
+The source is mounted for editing; the container environment lives in `/opt/venv`, separate
+from any host `.venv`. Run outputs persist under `runs/`. VS Code can use **Dev Containers:
+Reopen in Container** for the same environment.
 
-### MuZero with Beam Search
+## Native development
 
-1. **Overview**: 
-   - This method constructs a heuristic derived trajectory based on MuZero's components.
-   
-2. **Modified Files and Directories**:
-   - Changes within: `./muzero-beam-search/`
-   - Adjusted files: 
-     - `games/gridworld.py` and `games/lunarlander.py`: Additional config hyperparameters have been added.
-     - `self-play.py`: MCTS has been removed, and the Beam Search method has been implemented in its place.
-     - `diagnose_model.py`: Adjusted to diagnose MuZero models and plot trajectories that have been trained with Beam Search.
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
 
-### MuZero with Genetic Search
+```sh
+uv sync --locked --extra cpu --extra analysis --extra tuning --extra diagnostics
+uv run --locked --extra cpu --extra analysis --extra tuning --extra diagnostics pytest -m 'not gpu' -q
+uv run --locked --extra cpu muzero-research train --config configs/smoke/beam-lunarlander.yaml --output runs/beam-demo
+```
 
-1. **Overview**: 
-   - This method creates optimized trajectories via a genetic search and then aggregates the trajectories into a decision tree.
-   
-2. **Modified Files and Directories**:
-   - Changes within: `./muzero-genetic-search/`
-   - Adjusted files: 
-     - `controller_trainer.py`: A new file that contains the NES optimizer. It's responsible for optimizing the controller network through the generation of state trajectories via perturbed parameters.
-     - `self_play.py`: The search tree has been removed. Instead, it loads the controller network and requests updated parameters for each self-play game it plays from the shared storage.
-     - `games/gridworld.py` and `games/lunarlander.py`: Additional config hyperparameters have been added.
-     - `muzero.py`: Modified to call the controller trainer worker. Adjustments have been made to the checkpoint dictionary to include the controller network's parameters as a state dictionary. The pretrained model functionality has been updated to load the controller network from the `.checkpoint` file, allowing for inference without further training.
-     - `shared_storage.py`: Modified to correctly store the controller parameters for saving to the `.checkpoint` file. Additionally, it distributes the controller parameters to self-play agents when they access the shared storage, updating the controller parameters within their self-play session.
+Python 3.12 and exact dependencies are recorded in the lockfile. Linux containers are the
+reference environment; the CPU code and Ray integration checks also run on Windows.
+Commands do not start workers or training during module import.
 
-### MuZero with NES (Salimans et al., 2017) Optimised Controller
+Repeat the required extras with `uv run`: it synchronises the selected environment and may
+remove optional dependencies omitted from that invocation. Alternatively, use `.venv/bin/`
+commands on Linux or `.venv/Scripts/` commands on Windows after syncing.
 
-1. **Overview**: 
-   - This method obfuscates any decision tree. Instead, a new worker optimizes a controller neural network. The self-play agents then use this controller to make decisions and fill MuZero's replay buffer.
-   
-2. **Modified Files and Directories**:
-   - Changes within: `./muzero-nes/`
-   - Adjusted files: 
-     - `controller_trainer.py`: A new file that contains the NES optimizer. It's responsible for optimizing the controller network through the generation of state trajectories via perturbed parameters.
-     - `self_play.py`: The search tree has been removed. Instead, it loads the controller network and requests updated parameters for each self-play game it plays from the shared storage.
-     - `games/gridworld.py` and `games/lunarlander.py`: Additional config hyperparameters have been added.
-     - `muzero.py`: Modified to call the controller trainer worker. Adjustments have been made to the checkpoint dictionary to include the controller network's parameters as a state dictionary. The pretrained model functionality has been updated to load the controller network from the `.checkpoint` file, allowing for inference without further training.
-     - `shared_storage.py`: Modified to correctly store the controller parameters for saving to the `.checkpoint` file. Additionally, it distributes the controller parameters to self-play agents when they access the shared storage, updating the controller parameters within their self-play session.
+## Configurations and tasks
 
+| Presets | Purpose |
+|---|---|
+| `configs/smoke/` | Small runs for all four methods on both primary environments |
+| `configs/research/` | Dissertation hyperparameters with corrected runtime/environment conventions |
+| `configs/legacy/` | Original architecture, observation ordering, and reward scaling for sample models |
+| `configs/optional/` | Board games, CartPole, Atari, and OpenSpiel |
 
-## Note on Sample Models
+GridWorld is MiniGrid's random-start empty 6×6 task with three actions. New image observations
+are channel-first. `lunarlander` is the custom task: fixed terrain, no engine dispersion,
+random initial force with magnitude parameter 1000, and training rewards divided by three.
+`lunarlander_standard` is a separate Gymnasium benchmark. Training and evaluation use the
+same configured task and report both raw and scaled returns.
 
-All search methods contain sample models within their `results` directories. These models can be loaded to render self-play games.
+Research presets have the original large budgets. Start with a smoke preset before a long run.
 
-## Other Files & Utilities
+## Historical models
 
-- **Inference Utilities**:
-  - `/testing-beamsearch/main.py`: Calls the MuZero sample model trained with Beam Search and the Beam Search methods from `muzero-beam-search`. It can be used to run a ray tuning event or to run and render the LunarLander-V2 environment. The following arguments can be parsed:
-    ```bash
-    --num_env_repeats: Number of times an environment is run within a tuning sample before taking an average or the number of times to test inference.
-    --num_tuning_samples: Number of tuning samples to take from the search space.
-    --num_cores: Number of parallel sampling runs - one per core.
-    --record: Whether test results should be recorded.
-    ```
-  - `/testing-mcts/main.py`: Calls the MuZero sample model trained with MCTS and only runs inference in the LunarLander-V2 environment. The following arguments can be parsed:
-    ```bash
-    --num_env_repeats: Number of times an environment is run to test inference.
-    --record: Whether the results should be saved or not - boolean value of 0 or 1 for no or yes, respectively.
-    ```
-  - `agent_metrics.py`: Used to determine tabulated performance metrics.
-  - `graphing_inference`: Boxplot graphed using `.npz` files after running inference events in MCTS and Beam Search code (LunarLander-V2).
-  - `plot_training_results.py`: Used to smooth training data and plot.
+All eight models are under `artifacts/checkpoints/`. Original files remain unchanged; the
+manifest records their hashes and matching profiles. For example:
 
-## Data
+```sh
+uv run --locked --extra cpu muzero-research convert-checkpoint artifacts/checkpoints/mcts/lunarlander/model.checkpoint converted-checkpoints/mcts-lunarlander.checkpoint --config configs/legacy/mcts-lunarlander.yaml
+uv run --locked --extra cpu muzero-research evaluate --checkpoint converted-checkpoints/mcts-lunarlander.checkpoint --episodes 1 --output runs/historical-evaluation.csv
+```
 
-The project contains an empty directory for data (`parsed-data`). The necessary data can be found at [this location](https://github.qmul.ac.uk/ec22045/DissertationCode/tree/main/parsed-data). If you wish to look at the analytics, the data will need to be downloaded and unzipped into the `parsed-data` directory.
+Converted files embed configuration and provenance. Conversion never overwrites its source
+or an existing destination. Files outside the verified bundle require `--trust-legacy` if
+their historical pickle cannot load in weights-only mode.
 
-## References
+See [sample-model details](docs/sample-models.md). Original figures and available NPZ metrics
+are under `artifacts/`; the full historical training dataset is not included.
 
-1. Salimans, T., Ho, J., Chen, X., Sidor, S., Sutskever, I., 2017. Evolution Strategies as a Scalable Alternative to Reinforcement Learning. [Link](https://doi.org/10.48550/arXiv.1703.03864)
-2. Schrittwieser, J., Antonoglou, I., Hubert, T., Simonyan, K., Sifre, L., Schmitt, S., Guez, A., Lockhart, E., Hassabis, D., Graepel, T., Lillicrap, T., Silver, D., 2020. Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model. Nature 588, 604–609. [Link](https://doi.org/10.1038/s41586-020-03051-4)
-3. Werner Duvaud, A.H., 2019. MuZero General: Open Reimplementation of MuZero. GitHub repository.
+## GPU and tools
+
+```sh
+docker compose --profile gpu build gpu
+docker compose --profile gpu run --rm gpu muzero-research train --config configs/smoke/nes-lunarlander.yaml --device cuda --output runs/gpu-demo
+docker compose --profile metrics up tensorboard
+```
+
+The GPU profile needs an NVIDIA-compatible Docker host and driver. TensorBoard is available
+at `http://localhost:6006`. Native CUDA development selects `--extra cuda` instead of
+`--extra cpu`; these variants are mutually exclusive.
+
+The CLI also provides `tune`, `diagnose`, and optional `import-database` commands.
+See the [experiment guide](docs/experiments.md), [architecture](docs/architecture.md),
+[code index](docs/code-index.md), and [contributor guide](CONTRIBUTING.md).
+The [validation record](docs/validation.md) lists completed checks and remaining hardware checks.
+
+## Attribution
+
+Preserve [LICENSE](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md) when redistributing.
+
+- Schrittwieser et al. (2020), [Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model](https://doi.org/10.1038/s41586-020-03051-4).
+- Salimans et al. (2017), [Evolution Strategies as a Scalable Alternative to Reinforcement Learning](https://arxiv.org/abs/1703.03864).
+- Werner Duvaud, [MuZero-General](https://github.com/werner-duvaud/muzero-general).

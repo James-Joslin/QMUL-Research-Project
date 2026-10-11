@@ -28,6 +28,7 @@ tuning = ["ray[tune]>=2.40,<3"]
 analysis = ["pandas>=2.2,<4", "matplotlib>=3.9,<4", "scipy>=1.14,<2"]
 database = ["sqlalchemy>=2,<3", "psycopg[binary]>=3.2,<4", "pandas>=2.2,<4"]
 games = ["gymnasium[atari]>=1.2,<2", "opencv-python-headless>=4.10,<5"]
+spiel = ["open-spiel>=1.6,<2; sys_platform == 'linux'"]
 diagnostics = ["graphviz>=0.20,<1"]
 
 [project.scripts]

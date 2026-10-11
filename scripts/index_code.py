@@ -19,7 +19,7 @@ def index(root: Path, baseline: bool = False) -> dict:
                 *names,
                 *(
                     p.relative_to(root).as_posix()
-                    for folder in ("src", "tests", "scripts")
+                    for folder in ("src", "tests", "scripts", "examples")
                     for p in (root / folder).rglob("*.py")
                 ),
             }
@@ -80,7 +80,11 @@ def index(root: Path, baseline: bool = False) -> dict:
             "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
             "bytes": p.stat().st_size,
         }
-        for p in root.glob("muzero-*/results/**/*.checkpoint")
+        for p in (
+            root.glob("muzero-*/results/**/*.checkpoint")
+            if baseline
+            else root.glob("artifacts/checkpoints/**/*.checkpoint")
+        )
     ]
     return {
         "commit": subprocess.check_output(
