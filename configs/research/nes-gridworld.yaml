@@ -1,0 +1,90 @@
+seed: 0
+output_dir: runs
+environment:
+  name: gridworld
+  observation_shape:
+  - 3
+  - 7
+  - 7
+  action_space:
+  - 0
+  - 1
+  - 2
+  players:
+  - 0
+  observation_layout: CHW
+  reward_scale: 1
+  max_steps: 15
+  stacked_observations: 0
+network:
+  kind: fullyconnected
+  encoding_size: 8
+  support_size: 10
+  fc_representation_layers: []
+  fc_dynamics_layers:
+  - 16
+  fc_reward_layers:
+  - 16
+  fc_value_layers:
+  - 16
+  fc_policy_layers:
+  - 16
+  blocks: 1
+  channels: 2
+  reduced_channels_reward: 2
+  reduced_channels_value: 2
+  reduced_channels_policy: 2
+  resnet_fc_reward_layers: []
+  resnet_fc_value_layers: []
+  resnet_fc_policy_layers: []
+  downsample: false
+training:
+  steps: 30000
+  batch_size: 128
+  replay_capacity: 5000
+  unroll_steps: 10
+  td_steps: 20
+  discount: 0.997
+  optimizer: Adam
+  learning_rate: 0.005
+  lr_decay_rate: 1
+  lr_decay_steps: 1000
+  weight_decay: 0.0001
+  momentum: 0.9
+  value_loss_weight: 1
+  prioritized_replay: false
+  priority_alpha: 0.5
+  reanalyse: false
+  checkpoint_interval: 10
+  temperature_threshold: null
+runtime:
+  device: cpu
+  workers: 1
+  fitness_workers: 1
+  cpus: 2
+  population_backend: local
+  startup_timeout: 120.0
+  ray_object_store_bytes: null
+  torch_threads: 1
+decision:
+  method: nes
+  simulations: 20
+  dirichlet_alpha: 0.25
+  exploration_fraction: 0.25
+  pb_c_base: 19652
+  pb_c_init: 1.25
+  max_depth: 12
+  beam_width: 2
+  reward_heuristic_weight: 1.0
+  value_heuristic_weight: 1.0
+  population_size: 120
+  generations: 1
+  horizon: 15
+  tournament_size: 6
+  mutation_rate: 0.2
+  controller_width: 32
+  controller_hidden_layers: 0
+  noise_std: 0.1
+  es_learning_rate: 0.1
+  noise_decay: 1
+  es_lr_decay: 1

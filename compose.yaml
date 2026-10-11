@@ -1,0 +1,59 @@
+x-development: &development
+  working_dir: /workspace
+  init: true
+  stdin_open: true
+  tty: true
+  shm_size: ${RAY_SHM_SIZE:-2gb}
+  environment:
+    MPLBACKEND: Agg
+    SDL_AUDIODRIVER: dummy
+  volumes:
+    - .:/workspace
+    - uv-cache:/opt/uv-cache
+
+services:
+  dev:
+    <<: *development
+    build:
+      context: .
+      args:
+        USER_ID: ${LOCAL_UID:-1000}
+        GROUP_ID: ${LOCAL_GID:-1000}
+        ACCELERATOR: cpu
+    command: bash
+
+  gpu:
+    <<: *development
+    profiles: [gpu]
+    build:
+      context: .
+      args:
+        USER_ID: ${LOCAL_UID:-1000}
+        GROUP_ID: ${LOCAL_GID:-1000}
+        ACCELERATOR: cuda
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    command: bash
+
+  tensorboard:
+    profiles: [metrics]
+    build:
+      context: .
+      args:
+        USER_ID: ${LOCAL_UID:-1000}
+        GROUP_ID: ${LOCAL_GID:-1000}
+        ACCELERATOR: cpu
+    command: tensorboard --logdir /workspace/runs --host 0.0.0.0 --port 6006
+    ports:
+      - "127.0.0.1:${TENSORBOARD_PORT:-6006}:6006"
+    volumes:
+      - ./runs:/workspace/runs:ro
+    init: true
+
+volumes:
+  uv-cache:

@@ -1,0 +1,77 @@
+{
+  "baseline_commit": "b9061f547a9e89516d736e70a579600cbccf78b7",
+  "checkpoints": [
+    {
+      "path": "artifacts/checkpoints/mcts/gridworld/model.checkpoint",
+      "source_path": "muzero-mcts-search/results/gridworld/Gridworld-MCTS-Sample/model.checkpoint",
+      "sha256": "6aab9d9517d08ca72fc33dd889d97c53a2f44e1d2733b924f184f9ad613eccb1",
+      "bytes": 47875,
+      "config": "configs/legacy/mcts-gridworld.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/mcts-gridworld.npz",
+      "training_step": 34999
+    },
+    {
+      "path": "artifacts/checkpoints/mcts/lunarlander/model.checkpoint",
+      "source_path": "muzero-mcts-search/results/lunarlander/LunarLander-MCTS-Sample/model.checkpoint",
+      "sha256": "f6763292d7e3b33a1f925b747641be2cacb5bc4804d383bc9395c8949dab559c",
+      "bytes": 96963,
+      "config": "configs/legacy/mcts-lunarlander.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/mcts-lunarlander.npz",
+      "training_step": 277599
+    },
+    {
+      "path": "artifacts/checkpoints/beam/gridworld/model.checkpoint",
+      "source_path": "muzero-beam-search/results/gridworld/GridWorld-BeamSearch-Sample/model.checkpoint",
+      "sha256": "2a13b7b393ef2318382f3d474bb84868bfd70c454b9a4f2ade9245dad28d2a60",
+      "bytes": 47875,
+      "config": "configs/legacy/beam-gridworld.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/beam-gridworld.npz",
+      "training_step": 34999
+    },
+    {
+      "path": "artifacts/checkpoints/beam/lunarlander/model.checkpoint",
+      "source_path": "muzero-beam-search/results/lunarlander/LunarLander-BeamSearch-Sample/model.checkpoint",
+      "sha256": "604b4f114fc48497acd0120e84c7a3ea486fdd2b29f08efbe54b56f40b670934",
+      "bytes": 96963,
+      "config": "configs/legacy/beam-lunarlander.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/beam-lunarlander.npz",
+      "training_step": 319999
+    },
+    {
+      "path": "artifacts/checkpoints/genetic/gridworld/model.checkpoint",
+      "source_path": "muzero-genetic-search/results/gridworld/Gridworld-Genetic-Sample/model.checkpoint",
+      "sha256": "3f22606a28c32bcc74b7207cde82b02bc2bf358963599a5425df776fccb11451",
+      "bytes": 47811,
+      "config": "configs/legacy/genetic-gridworld.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/genetic-gridworld.npz",
+      "training_step": 34999
+    },
+    {
+      "path": "artifacts/checkpoints/genetic/lunarlander/model.checkpoint",
+      "source_path": "muzero-genetic-search/results/lunarlander/LunarLander-Genetic-Sample/model.checkpoint",
+      "sha256": "c3c519cb0db945232c299584d810e8b3af74c1f7b4463121dc6d89a6d2d6bb1c",
+      "bytes": 96963,
+      "config": "configs/legacy/genetic-lunarlander.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/genetic-lunarlander.npz",
+      "training_step": 319999
+    },
+    {
+      "path": "artifacts/checkpoints/nes/gridworld/model.checkpoint",
+      "source_path": "muzero-nes/results/gridworld/GridWorld-NES-Sample/model.checkpoint",
+      "sha256": "37b643de90636a16cb349524063b8b51b76b92a7ea6d1a1dcdb5c0d7fb089299",
+      "bytes": 50743,
+      "config": "configs/legacy/nes-gridworld.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/nes-gridworld.npz",
+      "training_step": 29249
+    },
+    {
+      "path": "artifacts/checkpoints/nes/lunarlander/model.checkpoint",
+      "source_path": "muzero-nes/results/lunarlander/LunarLander-NES-Sample/model.checkpoint",
+      "sha256": "eac8eeaddfef5a36ebfe5f0cf0ee2d2a8e3a2a3c7f511d7e5b246b593f2671ae",
+      "bytes": 100279,
+      "config": "configs/legacy/nes-lunarlander.yaml",
+      "prediction_fixture": "artifacts/baseline-predictions/nes-lunarlander.npz",
+      "training_step": 142109
+    }
+  ]
+}

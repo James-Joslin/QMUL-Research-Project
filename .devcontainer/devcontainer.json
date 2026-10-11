@@ -1,0 +1,19 @@
+{
+  "name": "MuZero research development",
+  "dockerComposeFile": "../compose.yaml",
+  "service": "dev",
+  "workspaceFolder": "/workspace",
+  "shutdownAction": "stopCompose",
+  "overrideCommand": true,
+  "remoteUser": "researcher",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff"],
+      "settings": {
+        "python.defaultInterpreterPath": "/opt/venv/bin/python",
+        "editor.formatOnSave": true,
+        "[python]": {"editor.defaultFormatter": "charliermarsh.ruff"}
+      }
+    }
+  }
+}
