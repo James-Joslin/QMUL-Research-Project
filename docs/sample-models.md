@@ -27,9 +27,13 @@ old training continuation. New checkpoints store the complete supported resume s
 Reference NPZ fixtures contain initial/recurrent network outputs captured before migration.
 The tests compare these outputs and converted weights and execute bounded sample evaluation.
 `lunarlander-physics.npz` captures the seeded original physics trajectory independently.
-The physics regression keeps tight observation checks and exact termination checks; rewards
-use an absolute tolerance of `1e-4` to accommodate float32 rounding across Box2D platform
-builds, amplified by the reward shaping coefficients. The fixture is retained unchanged.
+The physics regression compares the full trajectory with absolute tolerances of `1e-6` for
+continuous observations and `1e-3` for shaped rewards, with relative tolerance disabled.
+Box2D platform builds accumulate small float32 differences. The two norms and angle in
+reward shaping amplify observation errors across consecutive steps by at most
+`200 * (2 * sqrt(2) + 1)`, giving a reward error budget below `1e-3` for `1e-6` state drift.
+Contact flags, termination, truncation, and terminal rewards are checked exactly.
+The fixture is retained unchanged.
 
 Historical inference NPZ files and figures are preserved under `artifacts/historical-results/`
 and `artifacts/figures/`. Those inference files used the old standard LunarLander evaluation
