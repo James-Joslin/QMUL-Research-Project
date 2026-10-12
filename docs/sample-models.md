@@ -28,7 +28,9 @@ Reference NPZ fixtures contain initial/recurrent network outputs captured before
 The tests compare these outputs and converted weights and execute bounded sample evaluation.
 `lunarlander-physics.npz` captures the seeded original physics trajectory independently.
 The physics regression compares the full trajectory with absolute tolerances of `1e-6` for
-continuous observations and `1e-3` for shaped rewards, with relative tolerance disabled.
+nonterminal continuous observations, `1e-5` for the terminal collision observation, and `1e-3`
+for shaped rewards, with relative tolerance disabled. The terminal collision tolerance covers
+the measured Linux-versus-Windows drift of `2.42e-6` during ground contact resolution.
 Box2D platform builds accumulate small float32 differences. The two norms and angle in
 reward shaping amplify observation errors across consecutive steps by at most
 `200 * (2 * sqrt(2) + 1)`, giving a reward error budget below `1e-3` for `1e-6` state drift.

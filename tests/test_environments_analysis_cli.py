@@ -49,14 +49,28 @@ def test_research_lander_preserves_baseline_physics():
             # the full trajectory so failures report the maximum drift, not just
             # the first step over tolerance. Contact flags remain exact.
             observations = np.asarray(observations)
+            terminal_observations = np.concatenate(([False], fixture["done"]))
             np.testing.assert_allclose(
-                observations[:, :6], fixture["observations"][:, :6], rtol=0, atol=1e-6
+                observations[~terminal_observations, :6],
+                fixture["observations"][~terminal_observations, :6],
+                rtol=0,
+                atol=1e-6,
+            )
+            # The final crash resolves ground contacts, which amplifies solver
+            # rounding: Linux CI differs from the Windows fixture by up to 2.42e-6.
+            np.testing.assert_allclose(
+                observations[terminal_observations, :6],
+                fixture["observations"][terminal_observations, :6],
+                rtol=0,
+                atol=1e-5,
             )
             np.testing.assert_array_equal(observations[:, 6:], fixture["observations"][:, 6:])
             # Two norms and an angle, scaled by 100 at two consecutive steps,
             # amplify 1e-6 state drift by at most 200 * (2 * sqrt(2) + 1).
             rewards = np.asarray(rewards)
-            np.testing.assert_allclose(rewards, fixture["rewards"], rtol=0, atol=1e-3)
+            np.testing.assert_allclose(
+                rewards[~fixture["done"]], fixture["rewards"][~fixture["done"]], rtol=0, atol=1e-3
+            )
             np.testing.assert_array_equal(
                 rewards[fixture["done"]], fixture["rewards"][fixture["done"]]
             )
