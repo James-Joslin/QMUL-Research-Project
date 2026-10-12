@@ -42,7 +42,10 @@ def test_research_lander_preserves_baseline_physics():
                 np.testing.assert_allclose(
                     observation, fixture["observations"][index + 1], atol=1e-7
                 )
-                assert reward == pytest.approx(fixture["rewards"][index], abs=1e-7)
+                # Box2D builds can differ at float32 precision across platforms.
+                # Reward shaping scales state differences by 100 and subtracts
+                # consecutive values, so rewards need a larger absolute tolerance.
+                assert reward == pytest.approx(fixture["rewards"][index], rel=0, abs=1e-4)
                 assert terminated == fixture["done"][index]
                 assert not truncated
         finally:
